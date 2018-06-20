@@ -1,0 +1,48 @@
+'.text.language-hex':
+#A
+#B
+#C
+#D
+#E
+#F
+#G
+#H
+#I
+  'if-else':
+    'prefix':'if'
+    'body': """
+      if ${1:true}
+      then
+      {
+      \t
+      }
+      else
+      {
+        skip
+      };
+    """
+#J
+#K
+#L
+#M
+#N
+#O
+#P
+#Q
+#R
+#S
+#T
+#U
+#V
+#W
+  'while-loop':
+    'prefix':'while'
+    'body': """
+      while true do
+      {
+      \t
+      };
+    """
+#X
+#Y
+#Z

@@ -1,0 +1,110 @@
+'scopeName': 'text.language-hex'
+'fileTypes':[
+  'x'
+]
+'name':'x'
+'foldingStartMarker': '\{\s*$';
+'foldingStopMarker': '^\s*\}'
+'patterns': [
+  {
+    'include': '#language'
+  }
+]
+'repository':
+  'language':
+    'patterns':[
+      {
+        'include':'#main-comments'
+      }
+      {
+        'include':'#keywords'
+      }
+      {
+        'include':'#strings'
+      }
+      {
+        'include':'#operators'
+      }
+      {
+        'include':'#constants'
+      }
+    ]
+  'main-comments':
+    'patterns':[
+      {
+        'begin': '\\|'
+        'beginCaptures': 'punctuation.definition.comment.language-hex'
+        'end': '\\|'
+        'name': 'comment.line.double-slash.language-hex'
+      }
+    ]
+  'keywords':
+    'patterns':[
+      {
+        'match':'(^| )(proc|func|return|var|array|val|if|and|or|not|then|else|skip|stop|while|do)(?![A-Za-z0-9])'
+        'name':'keyword.other.language-hex'
+      }
+      {
+        'match':'(?<=\(\) )(is)(?=( |$\\n?))'
+        'name':'keyword.other.language-hex'
+      }
+      {
+        'match':'([a-zA-Z_]+(?=\\())'
+        'name':'support.function.language-hex'
+      }
+      {
+        'match': '(\@)([a-zA-Z_0-9]+)'
+        'name': 'constant.language-hex'
+      }
+    ]
+  'strings':
+    'patterns':[
+      {
+        'begin': '"'
+        'end': '"'
+        'name': 'string.quoted.double.language-e'
+        'patterns': [
+          {
+            'match': '\\\\.'
+            'name': 'constant.character.escape.language-e'
+          }
+        ]
+      }
+      {
+        'begin': '\''
+        'end': '\''
+        'name': 'string.quoted.single.language-e'
+        'patterns': [
+          {
+            'match': '\\\\.'
+            'name': 'constant.character.escape.language-e'
+          }
+        ]
+      }
+    ]
+  'operators':
+    'patterns': [
+      {
+        'match': ':?=|\\+|-|<>|(<|>)=?|!|\\?|~'
+        'name': 'keyword.operator.language-e'
+      }
+    ]
+  'constants':
+    'patterns': [
+      {
+        'match': '(#b)(0|1)+'
+        'name': 'constant.numeric.integer.language-hex'
+      }
+      {
+        'match': '(#)[0-9a-fA-F]+'
+        'name': 'constant.numeric.integer.language-hex'
+      }
+      {
+        'match': '\\b\\d+(?i:e\\d+)?\\b'
+        'name': 'constant.numeric.integer.language-hex'
+      }
+      {
+        'match': '(?<![a-zA-Z_-])(true|false)(?![a-zA-Z_-])'
+        'name': 'constant.langauge.language-hex'
+      }
+    ]

@@ -1,0 +1,25 @@
+{
+  "name": "language-hex",
+  "version": "0.0.0",
+  "description": "Syntax highlighting and snippets for the Hex X Language",
+  "engines": {
+    "atom": ">=1.0.0",
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bighexmachine/language-hex.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bighexmachine/language-hex/issues"
+  },
+  "keywords": [
+    "grammar",
+    "hex",
+    "language",
+    "david",
+    "may",
+    "bighexmachine"
+  ]
+}
