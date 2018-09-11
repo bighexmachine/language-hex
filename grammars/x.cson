@@ -36,25 +36,51 @@
         'beginCaptures': 'punctuation.definition.comment.language-hex'
         'end': '\\|'
         'name': 'comment.line.double-slash.language-hex'
+        'patterns': [
+          {
+            'begin': '$\\n?'
+            'end': '\\|'
+            'name': 'invalid.illegal.language-hex'
+
+          }
+        ]
       }
     ]
   'keywords':
     'patterns':[
       {
-        'match':'(^| )(proc|func|return|var|array|val|if|and|or|not|then|else|skip|stop|while|do)(?![A-Za-z0-9])'
+        'match':'(^| )(module|in|proc|func|return|var|array|val|if|and|or|not|then|else|skip|stop|while|do|__asm)(?![A-Za-z0-9])'
         'name':'keyword.other.language-hex'
+      }
+      {
+        'match':'(delay|longdelay|verylongdelay|displayBitmap|memcpy|memzero|clearDisplay|mul|div|rem|abs|lsh|rsh|isOdd|isEven|mod|sRand|genRand|getBitmapForChar|copyBitmapForChar|initAlphabet|initUpperCase|initLowerCase|initNumbers|initSymbols)(?=\\()'
+        'name':'support.variable.language-hex'
       }
       {
         'match':'(?<=\(\) )(is)(?=( |$\\n?))'
         'name':'keyword.other.language-hex'
       }
       {
-        'match':'([a-zA-Z_]+(?=\\())'
+        'match':'([a-zA-Z_]+( )?(?=\\())'
         'name':'support.function.language-hex'
       }
       {
         'match': '(\@)([a-zA-Z_0-9]+)'
         'name': 'constant.language-hex'
+      }
+      {
+        'begin': '(?<=(__asm) \\()"'
+        'end': '"'
+        'name': 'string.quoted.single.language-hex'
+        'patterns': [
+          {
+            'match': '(ldam|ldbm|stam|ldac|ldbc|ldap|ldai|ldbi|stai|br|brz|brn|brb|add|sub|in|out|opr)'
+            'name': 'keyword.other.language-hex'
+          }
+          {
+            'include': '#constants'
+          }
+        ]
       }
     ]
   'strings':
@@ -62,22 +88,22 @@
       {
         'begin': '"'
         'end': '"'
-        'name': 'string.quoted.double.language-e'
+        'name': 'string.quoted.double.language-hex'
         'patterns': [
           {
             'match': '\\\\.'
-            'name': 'constant.character.escape.language-e'
+            'name': 'constant.character.escape.language-hex'
           }
         ]
       }
       {
         'begin': '\''
         'end': '\''
-        'name': 'string.quoted.single.language-e'
+        'name': 'string.quoted.single.language-hex'
         'patterns': [
           {
             'match': '\\\\.'
-            'name': 'constant.character.escape.language-e'
+            'name': 'constant.character.escape.language-hex'
           }
         ]
       }
@@ -86,7 +112,7 @@
     'patterns': [
       {
         'match': ':?=|\\+|-|<>|(<|>)=?|!|\\?|~'
-        'name': 'keyword.operator.language-e'
+        'name': 'keyword.operator.language-hex'
       }
     ]
   'constants':

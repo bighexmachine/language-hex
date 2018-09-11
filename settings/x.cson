@@ -1,0 +1,4 @@
+'.language-hex':
+  'editor':
+    'commentStart': '|'
+    'commentEnd': '|'
